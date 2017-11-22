@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use Auth;
@@ -16,23 +16,19 @@ class CustomerLoginController extends Controller
 
     //Login
     public function showLoginForm(){
-        return view('login.login');
-    }
-
-    public function validationLogin($request){
-        return $this->validate($request, [
-            'email' => 'required|max:255|email',
-            'password' => 'required|min:6'
-        ]);
+        return view('login.customer-login');
     }
 
     public function login(Request $request){
-        $this->validationLogin($request);
+        $this->validate($request, [
+            'email' => 'required',
+            'password' => 'required'
+        ]);
 
         if(Auth::guard('customer')->attempt(['email' => $request->email, 'password'=> $request->password], false)){
-            return redirect()->intended(route('home'));
+            return redirect()->route('customer.getProfile')->with('Success','Success');
         }else{
-            return redirect()->route('customer.login')->with('Failed','User Does Not Exist');
+            return redirect()->route('customer.login');
         }
     }
     //--------------------------------------------------------

@@ -8,13 +8,18 @@
         <ul class="navbar-nav">
             @if(Auth::check() == false)
                 <li class="nav-item" align="right">
-                    @if(Auth::guard('customer'))
-                        <a class="nav-link" href="{{route('customer.logout')}}" ><i class="fa fa-user" aria-hidden="true"></i>  Atsijungti</a>
-                    @else
-                        <a class="nav-link" href="{{route('customer.login')}}" ><i class="fa fa-user" aria-hidden="true"></i>  Prisijungti</a>
-                    @endif
+                <a class="nav-link" href="{{route('customer.login')}}" ><i class="fa fa-user" aria-hidden="true"></i>
+                    Login</a>
                 </li>
             @endif
+                <li class="nav-item" align="right">
+                    <a class="nav-link" href="{{route('shop.index')}}" ><i class="fa fa-user" aria-hidden="true"></i>
+                        Dronai</a>
+                </li>
+                <li class="nav-item" align="right">
+                    <a class="nav-link" href="{{route('customer.getProfile')}}" ><i class="fa fa-user" aria-hidden="true"></i>
+                        Mano profilis</a>
+                </li>
         </ul>
     </div>
 </nav>

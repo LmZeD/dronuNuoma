@@ -12,8 +12,10 @@ class Customer extends Authenticatable
 
     protected $guard = 'customer';
 
-    protected $connection = 'mysql';
-    protected $primaryKey = 'customer_id';
     protected $table = 'customer';
+
     protected $fillable=['customer_id', 'first_name', 'last_name', 'email', 'gender_gender_id','birth_date','phone','password'];
+
+    protected $hidden=['password'];
 }
+

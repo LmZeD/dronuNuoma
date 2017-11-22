@@ -30,6 +30,12 @@ class CustomerRegisterController extends Controller
             'password' => bcrypt($request['password']),
         ]);
 
+        if(Auth::guard('customer')->attempt(['email' => $request->email, 'password'=> $request->password], false)){
+            return redirect()->intended(route('home'));
+        }else{
+            return redirect()->route('customer.login')->with('Failed','User Does Not Exist');
+        }
+
         return redirect()->intended(route('home'));
     }
 

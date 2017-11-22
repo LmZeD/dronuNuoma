@@ -7,7 +7,6 @@
     @endif
 <form class="form-horizontal" action="{{route('customer.register')}}" method="post">
     <fieldset>
-
         <!-- Form Name -->
         <legend>Registracija</legend>
         {{ csrf_field() }}
