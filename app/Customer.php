@@ -16,6 +16,8 @@ class Customer extends Authenticatable
 
     protected $primaryKey='email';//testuoju login
 
+    public $incrementing = false;
+
     protected $fillable=['customer_id', 'first_name', 'last_name', 'email', 'gender_gender_id','birth_date','phone','password'];
 
     protected $hidden=['password'];

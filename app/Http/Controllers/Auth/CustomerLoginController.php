@@ -16,7 +16,10 @@ class CustomerLoginController extends Controller
 
     //Login
     public function showLoginForm(){
-        return view('login.customer-login');
+        if(Auth::check()==false) {
+            return view('login.customer-login');
+        }
+        return redirect(route('customer.getProfile'));
     }
 
     public function login(Request $request){
@@ -26,7 +29,7 @@ class CustomerLoginController extends Controller
         ]);
 
         if(Auth::guard('customer')->attempt(['email' => $request->email, 'password'=> $request->password], false)){
-            return redirect()->route('customer.getProfile')->with('Success','Success');
+            return redirect()->route('customer.getProfile')->with('success','Success');
         }else{
             return redirect()->route('customer.login');
         }

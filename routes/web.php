@@ -59,7 +59,17 @@ Route::group(['prefix' => 'customer'],function () {
         'uses' => 'NuomaController@postUpdateProduct',
         'as' => 'customer.getUpdateProductForm.submit'
     ]);
+
+    Route::get('/deleteProduct/{id}', [
+        'uses' => 'NuomaController@getDeleteProduct',
+        'as' => 'customer.deleteProduct.submit'
+    ]);
 });
+
+Route::get('/logout', [
+    'uses' => 'UserController@logout',
+    'as' => 'customer.logout'
+]);
 
 Route::group(['prefix' => 'shop'],function () {
     Route::get('/index', [
