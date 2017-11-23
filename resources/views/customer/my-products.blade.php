@@ -17,7 +17,7 @@
                                 <h3 class="text-center">{{$product -> name}}</h3>
                                 <p class="text-center">{{$product -> description}}</p>
                                 <p class="text-center">{{$product -> price}} €/h</p>
-                                <a href="#" class="btn btn-success"> Redaguoti </a>
+                                <a href="{{route('customer.getUpdateProductForm',['id' => $product->product_id] )}}" class="btn btn-success"> Redaguoti </a>
                                 <a href="#" class="btn btn-danger"> Šalinti </a>
                             </div>
                         </a>

@@ -49,6 +49,16 @@ Route::group(['prefix' => 'customer'],function () {
         'uses' => 'NuomaController@getCustomerProducts',
         'as' => 'customer.getCustomerProducts'
     ]);
+
+    Route::get('/getUpdateProductForm/{id}', [
+        'uses' => 'NuomaController@getUpdateProductForm',
+        'as' => 'customer.getUpdateProductForm'
+    ]);
+
+    Route::post('/getUpdateProductForm/{id}', [
+        'uses' => 'NuomaController@postUpdateProduct',
+        'as' => 'customer.getUpdateProductForm.submit'
+    ]);
 });
 
 Route::group(['prefix' => 'shop'],function () {

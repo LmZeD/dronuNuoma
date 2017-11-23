@@ -5,10 +5,12 @@
 @endsection
 
 @section('content')
-
+    {{ csrf_field() }}
 <div class="container">
 <h1>Hello</h1>
-    <p class="alert alert-success">{{Session::get('success')}}</p>
+    @if(session('success'))
+        <p class="alert alert-success">{{session('success')}}</p>
+    @endif
 </div>
 
 
