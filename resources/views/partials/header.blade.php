@@ -25,7 +25,10 @@
                     <a class="nav-link" href="{{route('shop.index')}}" ><i class="fa fa-user" aria-hidden="true"></i>
                         Dronai</a>
                 </li>
-
+                <li class="nav-item" align="right">
+                    <a class="nav-link" href="{{route('map')}}" ><i class="fa fa-user" aria-hidden="true"></i>
+                        Nuomos punktai</a>
+                </li>
         </ul>
     </div>
 </nav>

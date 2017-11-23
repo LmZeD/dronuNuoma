@@ -1,5 +1,8 @@
 <?php
 
+use Cornford\Googlmapper\Facades\MapperFacade;
+use Illuminate\Support\Facades\Route;
+
 Route::get('/',[
     'uses' => 'HomeController@index',
     'as' => 'home'
@@ -95,6 +98,25 @@ Route::group(['prefix' => 'admin'],function () {
     ]);
 });
 
+//Route::get('/map', function (){
+//    Mapper::map(
+//        53.3,
+//        -1.4,
+//        [
+//            'zoom'=>16,
+//            'draggable' => true,
+//            'marker' =>true,
+//            'eventAfterLoad'=> 'circleListener(maps[0].shapes[0].circle_0);'
+//        ]
+//    );
+//
+//    return view('shop.map');
+//})->name('map');
+
+Route::get('/map',[
+    'uses' => 'NuomaController@setUpMap',
+    'as' => 'map'
+]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
