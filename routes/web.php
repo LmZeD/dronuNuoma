@@ -106,6 +106,21 @@ Route::group(['prefix' => 'admin'],function () {
         'uses' => 'VartotojasController@postAddShopForm',
         'as' => 'admin.getAddShopForm.submit'
     ]);
+
+    Route::get('/rentSummary', [
+        'uses' => 'NuomaController@getRentSummary',
+        'as' => 'admin.getRentSummary'
+    ]);
+
+    Route::get('/state/{id}', [
+        'uses' => 'NuomaController@getStateByProductStatusId',
+        'as' => 'admin.getStateByProductStatusId'
+    ]);
+
+    Route::post('/rentSummary', [
+        'uses' => 'NuomaController@getRentSummaryDetails',
+        'as' => 'admin.getRentSummaryDetails'
+    ]);
 });
 
 Route::get('/map',[

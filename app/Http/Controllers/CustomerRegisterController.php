@@ -35,8 +35,6 @@ class CustomerRegisterController extends Controller
         }else{
             return redirect()->route('customer.login')->with('Failed','User Does Not Exist');
         }
-
-        return redirect()->intended(route('home'));
     }
 
     public function validation($request){

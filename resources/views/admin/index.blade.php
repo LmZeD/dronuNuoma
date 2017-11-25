@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Profile
+    Profilis
 @endsection
 
 @section('content')
@@ -27,7 +27,8 @@
                 <ul class="sub-menu collapse" id="service">
                     <li><a href="{{route('customer.getAddProductForm')}}">Pridėti prekę</a></li>
                     <li><a href="{{route('customer.getCustomerProducts')}}">Mano prekės</a></li>
-                    <li> <a href="{{route('admin.getAddShopForm')}}">Nustatyti nuomos punktą</a></li>
+                    <li><a href="{{route('admin.getAddShopForm')}}">Nustatyti nuomos punktą</a></li>
+                    <li><a href="{{route('admin.getRentSummary')}}" class="buttonAdm">Nuomos ataskaita</a></li>
                 </ul>
 
 
@@ -43,8 +44,11 @@
     <h1><strong>ADMIN</strong></h1>
     <p><strong>Dažnai naudojamos funkcijos</strong></p>
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-8 col-md-offset-2" style="padding-top: 20px;">
             <a href="{{route('admin.getAddShopForm')}}" class="buttonAdm">Nustatyti nuomos punktą</a>
+        </div>
+        <div class="col-md-8 col-md-offset-2" style="padding-top: 20px;">
+            <a href="{{route('admin.getRentSummary')}}" class="buttonAdm">Nuomos ataskaita</a>
         </div>
     </div>
 
