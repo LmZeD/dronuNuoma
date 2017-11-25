@@ -67,6 +67,16 @@ Route::group(['prefix' => 'customer'],function () {
         'uses' => 'NuomaController@getDeleteProduct',
         'as' => 'customer.deleteProduct.submit'
     ]);
+
+    Route::get('/getRentProductForm/{id}', [
+        'uses' => 'NuomaController@getRentPage',
+        'as' => 'customer.getRentPage'
+    ]);
+
+    Route::post('/getRentProductForm/{id}', [//route for test only, original will be in checkout with params
+        'uses' => 'NuomaController@sendRentDataToCheckOut',
+        'as' => 'customer.getRentPage.submit'
+    ]);
 });
 
 Route::get('/logout', [
@@ -97,21 +107,6 @@ Route::group(['prefix' => 'admin'],function () {
         'as' => 'admin.getAddShopForm.submit'
     ]);
 });
-
-//Route::get('/map', function (){
-//    Mapper::map(
-//        53.3,
-//        -1.4,
-//        [
-//            'zoom'=>16,
-//            'draggable' => true,
-//            'marker' =>true,
-//            'eventAfterLoad'=> 'circleListener(maps[0].shapes[0].circle_0);'
-//        ]
-//    );
-//
-//    return view('shop.map');
-//})->name('map');
 
 Route::get('/map',[
     'uses' => 'NuomaController@setUpMap',

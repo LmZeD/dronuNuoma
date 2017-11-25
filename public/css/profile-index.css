@@ -1,0 +1,45 @@
+body {
+    padding-top: 100px;
+}
+.col-md-8{
+    padding-left: 220px;
+}
+h1{
+    padding-left: 220px;
+    padding-bottom: 20px;
+    padding-top: 80px;
+}
+p{
+    padding-left: 220px;
+}
+hr{
+    padding-top: 10px;
+}
+h2{
+    padding-left: 220px;
+}
+h3{
+    padding-left: 220px;
+    padding-bottom: 20px;
+}
+.col-sm-6{
+    padding-left: 220px;
+}
+.fit{
+    padding-left: 220px;
+    padding-top: 10px;
+}
+.buttonAdm {
+    font: bold 12px Arial;
+    text-decoration: none;
+    background-color: #020203;
+    color: #ffff00;
+    padding: 6px 12px 6px 12px;
+    border-top: 2px solid #c7254e;
+    border-right: 2px solid #c7254e;
+    border-bottom: 2px solid #c7254e;
+    border-left: 2px solid #c7254e;
+}
+.alert{
+    padding-left: 220px;
+}

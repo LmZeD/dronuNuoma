@@ -5,7 +5,7 @@
         <fieldset>
         {{ csrf_field() }}
         <!-- Form Name -->
-            <legend>Drono informacija</legend>
+            <legend>Nuomos punkto adresas</legend>
 
             <!-- Text input-->
             <div class="form-group">
