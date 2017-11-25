@@ -29,7 +29,7 @@ class CustomerLoginController extends Controller
         ]);
 
         if(Auth::guard('customer')->attempt(['email' => $request->email, 'password'=> $request->password], false)){
-            return redirect()->route('customer.getProfile')->with('success','Success');
+            return redirect()->route('customer.getProfile');
         }else{
             return redirect()->route('customer.login');
         }

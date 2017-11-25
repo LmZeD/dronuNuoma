@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <form class="form-horizontal" action="{{route('customer.getAddProductForm.submit')}}" method="post">
+    <form class="form-horizontal" enctype="multipart/form-data" action="{{route('customer.getAddProductForm.submit')}}" method="post">
         <fieldset>
         {{ csrf_field() }}
             <!-- Form Name -->
@@ -77,6 +77,14 @@
                             <option value="{{$productType->product_type_id}}">{{$productType->name}}</option>
                         @endforeach
                     </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="file">Produkto nuotrauka (.png ne didesnė nei 10mb)</label>
+                <div class="col-md-4">
+                    <input type="file" name="file" id="file">
+                    <input type="hidden" value="{{csrf_token()}}" name="_token">
                 </div>
             </div>
 
