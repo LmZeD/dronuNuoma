@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <form class="form-horizontal" action="{{route('customer.getUpdateProductForm.submit',['id' => $product['product_id']])}}" method="post">
+    <form class="form-horizontal" enctype="multipart/form-data" action="{{route('customer.getUpdateProductForm.submit',['id' => $product['product_id']])}}" method="post">
         <fieldset>
 
         <!-- Form Name -->
@@ -40,6 +40,15 @@
                             <option value="{{$productStatus->product_status_id}}">{{$productStatus->name}} ({{$productStatus->description}})</option>
                         @endforeach
                     </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="file">Nauja produkto nuotrauka (.png ne didesnė nei 10mb)</label>
+                <label class="col-md-4 control-label" for="file">Palikite tuščią, jei nenorite keisti</label>
+                <div class="col-md-4">
+                    <input type="file" name="file" id="file">
+                    <input type="hidden" value="{{csrf_token()}}" name="_token">
                 </div>
             </div>
 
