@@ -133,12 +133,12 @@ Route::group(['prefix' => 'admin'],function () {
     ]);
 
     Route::get('/createEvent', [
-        'uses' => 'VartotojasController@getCreateEvent',
+        'uses' => 'VartotojasController@getCreateEventForm',
         'as' => 'admin.createEvent'
     ]);
 
     Route::post('/createEvent', [
-        'uses' => 'VartotojasController@postCreateEvent',
+        'uses' => 'VartotojasController@postCreateEventForm',
         'as' => 'admin.createEvent.submit'
     ]);
 });

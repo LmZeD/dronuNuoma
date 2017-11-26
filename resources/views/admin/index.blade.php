@@ -30,6 +30,7 @@
                     <li><a href="{{route('admin.getAddShopForm')}}">Nustatyti nuomos punktą</a></li>
                     <li><a href="{{route('admin.getRentSummary')}}">Nuomos ataskaita</a></li>
                     <li><a href="{{route('admin.sendMailForm')}}">Siųsti laišką</a></li>
+                    <li><a href="{{route('admin.createEvent')}}">Siųsti laišką</a></li>
                 </ul>
 
 
@@ -55,6 +56,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2" style="padding-top: 20px;">
             <a href="{{route('admin.getAddShopForm')}}" class="buttonAdm">Nustatyti nuomos punktą</a>
+            <a href="{{route('admin.createEvent')}}" class="buttonAdm">Kurti renginį</a>
         </div>
         <div class="col-md-8 col-md-offset-2" style="padding-top: 20px;">
             <a href="{{route('admin.getRentSummary')}}" class="buttonAdm">Nuomos ataskaita</a>

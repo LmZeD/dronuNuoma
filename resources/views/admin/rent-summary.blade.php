@@ -7,8 +7,8 @@
 @section('content')
 <h1 style="padding-bottom: 20px;">Nuomos ataskaita</h1>
 <hr>
-<p>Viso prekių:<strong> {{$totalCount}} </strong>(iš jų nuomuojami: <strong>{{$inRentCount}}</strong>
-            blokuojami: <strong>{{$blockedCount}}</strong>)</p>
+<p>Viso prekių:<strong> {{$totalCount}} </strong>(iš jų aktyvios: <strong>{{$activeCount}} </strong> nuomojamos: <strong>{{$inRentCount}}</strong>
+            blokuojamos: <strong>{{$blockedCount}}</strong>)</p>
 <hr>
 <p><strong>Aktyvumo lentelė</strong></p>
 <table class="table">
