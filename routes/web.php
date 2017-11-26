@@ -77,6 +77,17 @@ Route::group(['prefix' => 'customer'],function () {
         'uses' => 'NuomaController@sendRentDataToCheckOut',
         'as' => 'customer.getRentPage.submit'
     ]);
+
+    Route::get('/getCreateMessageForm', [
+        'uses' => 'VartotojasController@getCreateMessageForm',
+        'as' => 'customer.getCreateMessageForm'
+    ]);
+
+    Route::post('/getCreateMessageForm', [
+        'uses' => 'VartotojasController@postCreateMessageForm',
+        'as' => 'customer.getCreateMessageForm.submit'
+    ]);
+
 });
 
 Route::get('/logout', [

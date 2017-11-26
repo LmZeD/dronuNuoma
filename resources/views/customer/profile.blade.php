@@ -26,7 +26,7 @@
                 <ul class="sub-menu collapse" id="new">
                     <li><a href="{{route('customer.getAddProductForm')}}">Pridėti prekę</a></li>
                     <li><a href="{{route('customer.getCustomerProducts')}}">Mano prekės</a></li>
-                    <li>New New 3</li>
+                    <li><a href="{{route('customer.getCreateMessageForm')}}">Žinutė administratoriui</a></li>
                 </ul>
 
             </ul>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Address;
+use App\Message;
 use App\Event;
 use App\Mail\SingleMail;
 use App\Product;
@@ -19,7 +20,7 @@ class VartotojasController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:customer',['except' => ['logout']]);
+        $this->middleware('auth:customer',['except' => ['logout','getEvents']]);
     }
 
     public function logout(){
@@ -121,5 +122,26 @@ class VartotojasController extends Controller
         $mytime=Carbon::now();
         $events=Event::where('event_starts_at','>=',$mytime->toDateString())->get();
         return view('events.index',['events'=>$events]);
+    }
+
+    public function getCreateMessageForm(){
+        if(Auth::guard('customer')) {
+              return view('customer.create-message-form');
+        }
+        return redirect(route('home'));
+    }
+
+    public function postCreateMessageForm(Request $request){
+        if(Auth::guard('customer')) {
+            $user=Auth::user();
+            $mytime=Carbon::now();
+            Message::create([
+                'customer_id' =>$user->customer_id,
+                'message' => $request['message'],
+                'created_at'=> $mytime->toDateTimeString(),
+            ]);
+            return redirect(route('customer.getProfile'))->with('success','Išsiųsta!');
+        }
+        return redirect(route('home'));
     }
 }
