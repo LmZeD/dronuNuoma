@@ -152,6 +152,11 @@ Route::group(['prefix' => 'admin'],function () {
         'uses' => 'VartotojasController@postCreateEventForm',
         'as' => 'admin.createEvent.submit'
     ]);
+
+    Route::get('/userSummary', [
+        'uses' => 'VartotojasController@getUserSummary',
+        'as' => 'admin.getUserSummary'
+    ]);
 });
 
 Route::get('/map',[

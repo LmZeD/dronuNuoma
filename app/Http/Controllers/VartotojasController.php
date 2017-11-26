@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Address;
+use App\Customer;
 use App\Message;
 use App\Event;
 use App\Mail\SingleMail;
@@ -141,6 +142,46 @@ class VartotojasController extends Controller
                 'created_at'=> $mytime->toDateTimeString(),
             ]);
             return redirect(route('customer.getProfile'))->with('success','Išsiųsta!');
+        }
+        return redirect(route('home'));
+    }
+
+    public function getUserSummary(){
+        $user=auth()->user();
+        if($user->customer_status_customer_status_id ==9257999) {
+            //today
+            $mytime = Carbon::now();
+            $userUpdatesToday=Customer::where('updated_at',$mytime->toDateString())->count();
+            $userCreatesToday=Customer::where('created_at',$mytime->toDateString())->count();
+            //end of today
+            //this week
+            $startOfWeek = $mytime->startOfWeek();
+            $userUpdatesThisWeek=Customer::where('updated_at','>=',$startOfWeek->toDateString())->count();
+            $userCreatesThisWeek=Customer::where('created_at','>=',$startOfWeek->toDateString())->count();
+
+            //end of this week
+            //this month
+            $mytime = Carbon::now();
+            $startOfMonth = $mytime->startOfMonth();
+            $userUpdatesThisMonth=Customer::where('updated_at','>=',$startOfMonth->toDateString())->count();
+            $userCreatesThisMonth=Customer::where('created_at','>=',$startOfMonth->toDateString())->count();
+
+            //end of this month
+            //this year
+            $mytime = Carbon::now();
+            $startOfYear = $mytime->startOfYear();
+            $userUpdatesThisYear=Customer::where('updated_at','>=',$startOfYear->toDateString())->count();
+            $userCreatesThisYear=Customer::where('created_at','>=',$startOfYear->toDateString())->count();
+
+            //end of this year
+
+            $totalCount=Customer::all()->count();
+
+            return view('admin.user-summary',['userUpdatesToday'=>$userUpdatesToday,
+                'userUpdatesThisWeek'=>$userUpdatesThisWeek,'userUpdatesThisMonth'=>$userUpdatesThisMonth,
+                'userUpdatesThisYear'=>$userUpdatesThisYear, 'userCreatesToday'=>$userCreatesToday,
+                'userCreatesThisWeek'=>$userCreatesThisWeek,'userCreatesThisMonth'=>$userCreatesThisMonth,
+                'userCreatesThisYear'=>$userCreatesThisYear,'totalCount'=>$totalCount]);
         }
         return redirect(route('home'));
     }

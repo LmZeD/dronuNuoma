@@ -28,17 +28,12 @@
                     <li><a href="{{route('customer.getAddProductForm')}}">Pridėti prekę</a></li>
                     <li><a href="{{route('customer.getCustomerProducts')}}">Mano prekės</a></li>
                     <li><a href="{{route('admin.getAddShopForm')}}">Nustatyti nuomos punktą</a></li>
-                    <li><a href="{{route('admin.getRentSummary')}}">Nuomos ataskaita</a></li>
                     <li><a href="{{route('admin.sendMailForm')}}">Siųsti laišką</a></li>
                     <li><a href="{{route('admin.createEvent')}}">Kurti renginį</a></li>
+                    <li><a href="{{route('admin.getRentSummary')}}">Nuomos ataskaita</a></li>
+                    <li><a href="{{route('admin.getUserSummary')}}">Vartotojų ataskaita</a></li>
                 </ul>
 
-
-                <li>
-                    <a href="#">
-                        <i class="fa fa-users fa-lg"></i> Users
-                    </a>
-                </li>
             </ul>
         </div>
     </div>
@@ -60,6 +55,7 @@
         </div>
         <div class="col-md-8 col-md-offset-2" style="padding-top: 20px;">
             <a href="{{route('admin.getRentSummary')}}" class="buttonAdm">Nuomos ataskaita</a>
+            <a href="{{route('admin.getUserSummary')}}" class="buttonAdm">Vartotojų ataskaita</a>
         </div>
     </div>
 
