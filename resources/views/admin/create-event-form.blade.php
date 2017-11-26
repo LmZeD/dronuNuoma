@@ -25,14 +25,25 @@
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="zip">Pašto kodas</label>
+                <label class="col-md-4 control-label" for="description">Aprašymas</label>
                 <div class="col-md-4">
-                    <input id="zip" name="zip" value="{{old('zip')}}"type="text" placeholder="LT-11111" class="form-control input-md" required="">
+                    <input id="description" name="description" value="{{old('description')}}"type="text" placeholder="Aprašymas" class="form-control input-md" required="">
                 </div>
             </div>
 
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="date_form">Renginio pradžia</label>
+                <div class="col-md-4">
+                    <input id="date_form" name="date_form" value="{{old('date_form')}}"type="date" placeholder="Aprašymas" class="form-control input-md" required="">
+                </div>
+            </div>
 
-
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="date_to">Renginio pabaiga</label>
+                <div class="col-md-4">
+                    <input id="date_to" name="date_to" value="{{old('date_to')}}"type="date" placeholder="Aprašymas" class="form-control input-md" required="">
+                </div>
+            </div>
 
             <div class="form-group">
                 <label class="col-md-4 control-label" for="submit"></label>

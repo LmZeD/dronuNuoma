@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Address;
+use App\Event;
 use App\Mail\SingleMail;
 use App\Product;
 use App\ProductType;
 use Illuminate\Http\Request;
 use Illuminate\Mail\Mailer;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 use Auth;
 use Session;
@@ -103,9 +105,21 @@ class VartotojasController extends Controller
     public function postCreateEventForm(Request $request){
         $user=auth()->user();
         if($user->customer_status_customer_status_id ==9257999) {
-
-            return $request->all();
+            Event::create([
+                'description' =>$request['description'],
+                'name' => $request['name'],
+                'address' => $request['address'],
+                'event_starts_at' => $request['date_form'],
+                'event_ends_at' => $request['date_to'],
+            ]);
+            return redirect()->route('admin.index')->with('success','Sukurta!');
         }
         return redirect(route('home'));
+    }
+
+    public function getEvents(){
+        $mytime=Carbon::now();
+        $events=Event::where('event_starts_at','>=',$mytime->toDateString())->get();
+        return view('events.index',['events'=>$events]);
     }
 }

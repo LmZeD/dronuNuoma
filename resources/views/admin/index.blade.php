@@ -30,7 +30,7 @@
                     <li><a href="{{route('admin.getAddShopForm')}}">Nustatyti nuomos punktą</a></li>
                     <li><a href="{{route('admin.getRentSummary')}}">Nuomos ataskaita</a></li>
                     <li><a href="{{route('admin.sendMailForm')}}">Siųsti laišką</a></li>
-                    <li><a href="{{route('admin.createEvent')}}">Siųsti laišką</a></li>
+                    <li><a href="{{route('admin.createEvent')}}">Kurti renginį</a></li>
                 </ul>
 
 

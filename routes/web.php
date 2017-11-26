@@ -148,5 +148,10 @@ Route::get('/map',[
     'as' => 'map'
 ]);
 
+Route::get('/events',[
+    'uses' => 'VartotojasController@getEvents',
+    'as' => 'events'
+]);
+
 Route::get('/home', 'HomeController@index')->name('home');
 
