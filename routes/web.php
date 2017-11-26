@@ -121,6 +121,26 @@ Route::group(['prefix' => 'admin'],function () {
         'uses' => 'NuomaController@getRentSummaryDetails',
         'as' => 'admin.getRentSummaryDetails'
     ]);
+
+    Route::get('/sendMailForm', [
+        'uses' => 'VartotojasController@getSendMailForm',
+        'as' => 'admin.sendMailForm'
+    ]);
+
+    Route::post('/sendMailForm', [
+        'uses' => 'VartotojasController@postSendMailForm',
+        'as' => 'admin.sendMailForm.submit'
+    ]);
+
+    Route::get('/createEvent', [
+        'uses' => 'VartotojasController@getCreateEvent',
+        'as' => 'admin.createEvent'
+    ]);
+
+    Route::post('/createEvent', [
+        'uses' => 'VartotojasController@postCreateEvent',
+        'as' => 'admin.createEvent.submit'
+    ]);
 });
 
 Route::get('/map',[

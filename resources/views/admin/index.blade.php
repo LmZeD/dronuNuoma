@@ -28,7 +28,8 @@
                     <li><a href="{{route('customer.getAddProductForm')}}">Pridėti prekę</a></li>
                     <li><a href="{{route('customer.getCustomerProducts')}}">Mano prekės</a></li>
                     <li><a href="{{route('admin.getAddShopForm')}}">Nustatyti nuomos punktą</a></li>
-                    <li><a href="{{route('admin.getRentSummary')}}" class="buttonAdm">Nuomos ataskaita</a></li>
+                    <li><a href="{{route('admin.getRentSummary')}}">Nuomos ataskaita</a></li>
+                    <li><a href="{{route('admin.sendMailForm')}}">Siųsti laišką</a></li>
                 </ul>
 
 
@@ -42,6 +43,14 @@
     </div>
     <link rel="stylesheet" href="{{URL::to('css/side-menu.css')}}">
     <h1><strong>ADMIN</strong></h1>
+    @if(session('success'))
+        <p class="alert alert-success">{{session('success')}}</p>
+        {{session()->forget('success')}}
+    @endif
+    @if(session('fail'))
+        <p class="alert alert-danger">{{session('fail')}}</p>
+        {{session()->forget('fail')}}
+    @endif
     <p><strong>Dažnai naudojamos funkcijos</strong></p>
     <div class="row">
         <div class="col-md-8 col-md-offset-2" style="padding-top: 20px;">
